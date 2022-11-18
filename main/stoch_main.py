@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 import seaborn as sns
 import copy
-from early_stopping import EarlyStopping
+from utils.early_stopping import EarlyStopping
 
 delay=1
 seq_len=30

@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 import seaborn as sns
 import copy
-from early_stopping import EarlyStopping
-from data_process import Data,generate_data
+from utils.early_stopping import EarlyStopping
+from utils.data_process import Data,generate_data
 
 path='../data/北京空气_2010.1.1-2014.12.31.csv'
 data=generate_data(path)
