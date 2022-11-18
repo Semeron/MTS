@@ -111,8 +111,11 @@ if __name__=='__main__':
         if es.early_stop:
             print("Early stopping")
             break
+
     #预测
     m=model.load_state_dict(torch.load(path))
-    a=1
+    plt.plot(model(xval).data.numpy()[-120:])
+    plt.plot(yval.reshape(-1)[-120:], label='T')
+    plt.legend()
 
 
