@@ -6,7 +6,7 @@ import torch.nn.functional as F
 import datetime
 
 
-def generate_data(path='./data/北京空气_2010.1.1-2014.12.31.csv'):
+def generate_data(path='../data/北京空气_2010.1.1-2014.12.31.csv'):
     data = pd.read_csv(path)
     data = data.iloc[24:].fillna(method='ffill')
     data['tm'] = data.apply(lambda x: datetime.datetime(x['year'], x['month'], x['day'], x['hour']), axis=1)
@@ -27,8 +27,8 @@ class Data(object):
     def process(self):
         data = []
         for i in range(len(self.data) - self.seq_len - self.fore_num):
-            data.append(self.data.iloc[i:i + self.seq_len + self.fore_num])
-        data = np.array([i.values for i in data])
+            data.append(self.data.values[i:i + self.seq_len + self.fore_num])
+        data = np.array(data)
         #打乱数据，注意这里没有打乱时序的顺序，只是打乱的样本的顺序
         np.random.shuffle(data)
         X = data[:, :self.seq_len, :]
